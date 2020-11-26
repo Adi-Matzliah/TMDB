@@ -33,19 +33,15 @@ class MoviesViewModel @ViewModelInject constructor(
         when (movieCategory) {
             MovieCategory.NOW_PLAYING -> {
                 nowPlayingMoviesResult = moviesResult
-                nowPlayingMoviesResult
             }
             MovieCategory.POPULAR -> {
                 popularMoviesResult = moviesResult
-                popularMoviesResult
             }
             MovieCategory.TOP_RATED -> {
                 topRatedMoviesResult = moviesResult
-                topRatedMoviesResult
             }
             MovieCategory.UPCOMING ->{
                 upcomingMoviesResult = moviesResult
-                upcomingMoviesResult
             }
         }
         return moviesResult

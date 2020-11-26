@@ -1,17 +1,14 @@
-package com.exercise.firstdigitalbank.tmdb.core
+package com.exercise.firstdigitalbank.tmdb.feature.home
 
 import android.view.View
-import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.core.adapter.OnItemClickListener
-import com.exercise.firstdigitalbank.tmdb.core.adapter.PagedListViewAdapter
-import com.exercise.firstdigitalbank.tmdb.core.adapter.ViewHolderFactory
-import com.exercise.firstdigitalbank.tmdb.core.adapter.ViewItem
 import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.OnItemClickListener
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.PagedListViewAdapter
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.ViewHolderFactory
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.ViewItem
 
 class MoviesRecyclerViewAdapter(
     private val category: MovieCategory,

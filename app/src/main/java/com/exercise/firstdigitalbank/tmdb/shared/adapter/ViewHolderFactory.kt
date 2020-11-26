@@ -1,12 +1,12 @@
-package com.exercise.firstdigitalbank.tmdb.core.adapter
+package com.exercise.firstdigitalbank.tmdb.shared.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.core.MovieViewHolder
 import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.feature.details.CastViewHolder
 import com.exercise.firstdigitalbank.tmdb.feature.details.VideoViewHolder
+import com.exercise.firstdigitalbank.tmdb.feature.home.MovieViewHolder
 
 object ViewHolderFactory {
 

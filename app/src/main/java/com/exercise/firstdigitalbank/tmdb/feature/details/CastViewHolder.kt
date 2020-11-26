@@ -2,16 +2,14 @@ package com.exercise.firstdigitalbank.tmdb.feature.details
 
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.core.adapter.GenericViewAdapter
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.GenericViewAdapter
 import com.exercise.firstdigitalbank.tmdb.data.model.Cast
-import com.exercise.firstdigitalbank.tmdb.data.model.Video
 import kotlinx.android.synthetic.main.movie_cast_item_list.view.*
 
 class CastViewHolder(private val view: View) :

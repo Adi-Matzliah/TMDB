@@ -1,4 +1,4 @@
-package com.exercise.firstdigitalbank.tmdb.core.adapter
+package com.exercise.firstdigitalbank.tmdb.shared.adapter
 
 import android.view.LayoutInflater
 import android.view.View

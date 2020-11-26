@@ -1,6 +1,6 @@
 package com.exercise.firstdigitalbank.tmdb.data.model
 
-import com.exercise.firstdigitalbank.tmdb.core.adapter.ViewItem
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.ViewItem
 
 open class Movie (
     val id: Int,

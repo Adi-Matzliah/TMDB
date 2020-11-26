@@ -1,4 +1,4 @@
-package com.exercise.firstdigitalbank.tmdb.core.adapter
+package com.exercise.firstdigitalbank.tmdb.shared.adapter
 
 interface OnItemClickListener<T> {
         // TODO: Update argument type and name

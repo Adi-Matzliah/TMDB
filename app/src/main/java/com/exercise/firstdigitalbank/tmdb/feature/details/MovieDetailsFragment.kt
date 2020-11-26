@@ -8,20 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.core.MoviesRecyclerViewAdapter
-import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
-import com.exercise.firstdigitalbank.tmdb.data.model.Video
 import com.exercise.firstdigitalbank.tmdb.databinding.DetailsFragmentBinding
-import com.exercise.firstdigitalbank.tmdb.feature.movie.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_full_category.*
-import kotlinx.android.synthetic.main.fragment_full_category.rv_movie_category
-import kotlinx.android.synthetic.main.fragment_movie_details.*
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -42,7 +32,6 @@ class MovieDetailsFragment: Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_details, container, false)
         setupToolbar()
-
         initAdapter()
         initDataBinding()
         subscribeObservers()

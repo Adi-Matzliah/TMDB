@@ -1,22 +1,18 @@
-package com.exercise.firstdigitalbank.tmdb.core
+package com.exercise.firstdigitalbank.tmdb.feature.home
 
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.core.adapter.GenericViewAdapter
-import com.exercise.firstdigitalbank.tmdb.core.adapter.OnItemClickListener
 import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
-import com.google.android.material.card.MaterialCardView
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.GenericViewAdapter
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.OnItemClickListener
 
 
 /*class EventViewHolder(itemView: View, private val clickListener: OnItemClickListener<EventWithTypeStatusAndProduct>) :

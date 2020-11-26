@@ -7,8 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.core.MoviesRecyclerViewAdapter
-import com.exercise.firstdigitalbank.tmdb.core.adapter.OnItemClickListener
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.OnItemClickListener
 import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
 import com.exercise.firstdigitalbank.tmdb.feature.movie.MoviesViewModel

@@ -8,7 +8,7 @@ import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.core.adapter.GenericViewAdapter
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.GenericViewAdapter
 import com.exercise.firstdigitalbank.tmdb.data.model.Video
 
 class VideoViewHolder(view: View) :
