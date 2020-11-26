@@ -2,16 +2,20 @@ package com.exercise.firstdigitalbank.tmdb.feature.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.exercise.firstdigitalbank.tmdb.R
 import com.exercise.firstdigitalbank.tmdb.shared.adapter.OnItemClickListener
 import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
 import com.exercise.firstdigitalbank.tmdb.feature.movie.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.now_playing_movies_layout.*
 import kotlinx.android.synthetic.main.popular_movies_layout.*
 import kotlinx.android.synthetic.main.top_rated_movies_layout.*
@@ -33,6 +37,12 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnItemClickListener<Movie
         subscribeObservers()
         initAdapters()
         initClickListeners()
+        setupActionBar()
+    }
+
+    private fun setupActionBar() {
+        //setupWithNavController(toolbar, findNavController(), AppBarConfiguration(findNavController().graph))
+        activity?.title = getString(R.string.app_name)
     }
 
     private fun initClickListeners() {

@@ -22,7 +22,7 @@ class VideoViewHolder(view: View) :
         val resources = itemView.resources
 
         Glide.with(thumbnail.context)
-            .load("${resources.getString(R.string.youtube_thumbnail_url)}${video.id}")
+            .load("${resources.getString(R.string.youtube_thumbnail_url)}${video.key}")
             .transform(MultiTransformation(CenterCrop(), RoundedCorners(ROUND_CORNER_RADIUS)))
             //.apply(RequestOptions().error(R.drawable.ic_launcher_background))
             .into(thumbnail)

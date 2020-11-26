@@ -1,5 +1,6 @@
 package com.exercise.firstdigitalbank.tmdb.feature.details
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +9,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.exercise.firstdigitalbank.tmdb.R
 import com.exercise.firstdigitalbank.tmdb.databinding.DetailsFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_full_category.*
+import kotlinx.android.synthetic.main.fragment_movie_details.*
 
 
 @AndroidEntryPoint
@@ -31,7 +37,7 @@ class MovieDetailsFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_details, container, false)
-        setupToolbar()
+        setupActionBar()
         initAdapter()
         initDataBinding()
         subscribeObservers()
@@ -39,9 +45,9 @@ class MovieDetailsFragment: Fragment() {
         return binding.root
     }
 
-    private fun setupToolbar() {
-        activity?.setActionBar(binding.toolbar)
-        //activity?.actionBar?.title = "title"
+    private fun setupActionBar() {
+        setupWithNavController(binding.toolbar, findNavController(), AppBarConfiguration(findNavController().graph))
+        activity?.actionBar?.setBackgroundDrawable(ColorDrawable(resources.getColor(android.R.color.transparent)))
     }
 
     private fun initDataBinding() {
@@ -67,6 +73,7 @@ class MovieDetailsFragment: Fragment() {
             it.casts?.let { casts ->
                 castAdapter.setItems(casts)
             }
+            activity?.title = viewModel.movieDetails.value?.name
         }
     }
 }

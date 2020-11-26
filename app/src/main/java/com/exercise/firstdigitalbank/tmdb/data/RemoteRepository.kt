@@ -28,9 +28,9 @@ class RemoteRepository @Inject constructor(private val api: TmdbApi) {
     ).flow
 
     suspend fun getMovieDetails(id: Int) =
-        withContext(coroutineContext + Dispatchers.IO) {
+        //withContext(coroutineContext + Dispatchers.IO) {
             NetworkMapper.MovieDescriptionMapper.mapFromEntity(api.getMovieDetails(id))
-        }
+        //}
 
     companion object {
         private const val NETWORK_PAGE_SIZE = 20

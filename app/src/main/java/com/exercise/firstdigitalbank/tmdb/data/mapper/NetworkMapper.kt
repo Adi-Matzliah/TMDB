@@ -38,8 +38,8 @@ sealed class NetworkMapper {
                 rating = entity.voteAverage,
                 status = entity.status,
                 overview = entity.overview,
-                videos = entity.videos?.results?.map { Video(it!!.id, it.site) },
-                casts = entity.credits?.casts?.map { Cast(it!!.name, it.profilePath ?: FALLBACK_URL_PATH)},
+                videos = entity.videos?.results?.map { Video(id = it!!.id, key= it.key, site = it.site) },
+                casts = entity.credits?.casts?.map { Cast(name = it!!.name, profilePath = it.profilePath ?: FALLBACK_URL_PATH)},
             )
 
 

@@ -7,7 +7,6 @@
     <fragment
         android:id="@+id/hilt_homeFragment"
         android:name="com.exercise.firstdigitalbank.tmdb.feature.home.HomeFragment"
-        android:label="homeFragment"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_hilt_homeFragment_to_hilt_FullCategoryFragment"
@@ -19,7 +18,6 @@
     <fragment
         android:id="@+id/hilt_FullCategoryFragment"
         android:name="com.exercise.firstdigitalbank.tmdb.feature.category.FullCategoryFragment"
-        android:label="FullCategoryFragment"
         tools:layout="@layout/fragment_full_category">
         <action
             android:id="@+id/action_hilt_FullCategoryFragment_to_hilt_MovieDetailsFragment"
@@ -31,7 +29,6 @@
     <fragment
         android:id="@+id/hilt_MovieDetailsFragment"
         android:name="com.exercise.firstdigitalbank.tmdb.feature.details.MovieDetailsFragment"
-        android:label="MovieDetailsFragment"
         tools:layout="@layout/fragment_movie_details">
         <argument
             android:name="movie_id"

@@ -28,6 +28,11 @@ class FullCategoryFragment: Fragment(R.layout.fragment_full_category), OnItemCli
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         subscribeObservers()
+        setupActionBar()
+    }
+
+    private fun setupActionBar() {
+        activity?.title = getString(R.string.title_category_name, args.movieCategory.value)
     }
 
     private fun initAdapter() {

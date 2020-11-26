@@ -23,4 +23,5 @@
     <string name="videos_label">Videos</string>
     <string name="casts_label">Casts</string>
     <string name="content_description">n/a</string>
+    <string name="title_category_name">%s Movies</string>
 </resources>
