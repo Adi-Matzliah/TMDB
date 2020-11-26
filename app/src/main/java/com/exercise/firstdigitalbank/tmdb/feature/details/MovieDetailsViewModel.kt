@@ -20,5 +20,6 @@ class MovieDetailsViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             _movieDetails.value = repository.getMovieDetails(movieId)
         }
+        // TODO: handle errors and exception
     }
 }

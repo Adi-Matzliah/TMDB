@@ -25,6 +25,7 @@ class MoviesViewModel @ViewModelInject constructor(
     private lateinit var upcomingMoviesResult: Flow<PagingData<Movie>>
 
     fun fetchMoviesCategoryFlow(movieCategory: MovieCategory): Flow<PagingData<Movie>> {
+        // TODO: handle errors and exception
         val moviesResult = repository.getMoviesByCategory(movieCategory)
             .onEach { Timber.d("new page: $it") }
             .cachedIn(viewModelScope)
@@ -45,4 +46,5 @@ class MoviesViewModel @ViewModelInject constructor(
         }
         return moviesResult
     }
+
 }
