@@ -8,9 +8,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.shared.adapter.OnItemClickListener
 import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.feature.movie.MoviesViewModel
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.OnItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_full_category.*
 import kotlinx.coroutines.flow.collectLatest
@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class FullCategoryFragment: Fragment(R.layout.fragment_full_category), OnItemClickListener<Movie> {
+class FullCategoryFragment : Fragment(R.layout.fragment_full_category), OnItemClickListener<Movie> {
     private val viewModel: MoviesViewModel by viewModels()
 
     private lateinit var adapter: FullCategoryRecyclerViewAdapter
@@ -32,7 +32,8 @@ class FullCategoryFragment: Fragment(R.layout.fragment_full_category), OnItemCli
     }
 
     private fun setupActionBar() {
-        activity?.title = getString(R.string.title_category_name, args.movieCategory.value)
+        activity?.actionBar?.title =
+            getString(R.string.title_category_name, args.movieCategory.value)
     }
 
     private fun initAdapter() {
@@ -50,7 +51,9 @@ class FullCategoryFragment: Fragment(R.layout.fragment_full_category), OnItemCli
 
     private fun openMovieDetailsScreen(movieId: Int) {
         val movieDetailsScreenAction =
-            FullCategoryFragmentDirections.actionHiltFullCategoryFragmentToHiltMovieDetailsFragment(movieId)
+            FullCategoryFragmentDirections.actionHiltFullCategoryFragmentToHiltMovieDetailsFragment(
+                movieId
+            )
         findNavController().navigate(movieDetailsScreenAction)
     }
 

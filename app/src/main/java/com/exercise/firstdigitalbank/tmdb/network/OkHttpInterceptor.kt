@@ -12,9 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class OkHttpInterceptor @Inject constructor(private val resLoader: ResourcesLoader) : Interceptor {
 
-    companion object RequestHeaders {
-        const val NO_AUTH_HEADER_KEY = "No-Authentication"
-        const val DEFAULT_BASE_URL_KEY = "Static-Base-Url"
+    companion object RequestParams {
         const val API_KEY = "api_key"
     }
 
@@ -35,40 +33,6 @@ class OkHttpInterceptor @Inject constructor(private val resLoader: ResourcesLoad
 
         return url(newUrl)
     }
-
-    /*private fun Response.extractHeaders(sessionManager: SessionManager) {
-        when {
-            headers().contains(AUTHORIZATION_TOKEN_KEY) -> {
-                sessionManager.setAuthorizationToken(header(AUTHORIZATION_TOKEN_KEY)!!)
-            }
-            headers().contains(AUTHENTICATION_TOKEN_KEY) -> {
-                sessionManager.setAuthorizationToken(header(AUTHENTICATION_TOKEN_KEY)!!)
-            }
-        }
-    }
-
-    private fun Request.Builder.addHeaders(request: Request): Request.Builder {
-        if (!request.headers().contains(NO_AUTH_HEADER_KEY)) {
-            *//* Apollo GraphQL Headers *//*
-            addHeader(APOLLO_CLIENT_NAME_KEY, BuildConfig.APPLICATION_ID)
-            addHeader(APOLLO_CLIENT_VERSION_KEY, BuildConfig.VERSION_NAME)
-            *//* Auth's Tokens Headers *//*
-            addHeader(AUTHENTICATION_TOKEN_KEY, sessionManager.authToken)
-            addHeader(REFRESH_TOKEN_KEY, sessionManager.refreshToken)
-            val authorizationToken = sessionManager.authorizationToken
-            if (authorizationToken.isNotEmpty()) {
-                addHeader(AUTHORIZATION_TOKEN_KEY, sessionManager.authorizationToken)
-            }
-
-            val projectName = userRepo.getSelectedProjectName()
-            *//* Project Name Header *//*
-            if (projectName.isNotEmpty()) {
-                addHeader(PROJECT_NAME_KEY, projectName)
-            }
-        }
-
-        return this
-    }*/
 }
 
 private fun Headers.contains(headerKey: String): Boolean = !this.get(headerKey).isNullOrEmpty()

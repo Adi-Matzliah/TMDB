@@ -47,7 +47,6 @@ class MovieDetailsFragment: Fragment() {
 
     private fun setupActionBar() {
         setupWithNavController(binding.toolbar, findNavController(), AppBarConfiguration(findNavController().graph))
-        activity?.actionBar?.setBackgroundDrawable(ColorDrawable(resources.getColor(android.R.color.transparent)))
     }
 
     private fun initDataBinding() {

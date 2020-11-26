@@ -48,30 +48,3 @@ fun ImageView.loadImage(
         transition(BitmapTransitionOptions.withCrossFade(1000))
     }.into(this)
 }
-
-/*BindingAdapter(value = ["toolbar:logoUrl", "toolbar:fallbackLogoId"], requireAll = true)
-fun Toolbar.setLogoUrl(url: String?, @DrawableRes fallbackLogoId: Int?) {
-    val requestOptions = RequestOptions()
-        .let {
-            if (fallbackLogoId != null)
-                it.fallback(fallbackLogoId)
-            else
-                it
-        }
-    Glide.with(this)
-        .load(url)
-        .apply(requestOptions)
-        .into(object : CustomTarget<Drawable>() {
-
-            override fun onResourceReady(
-                resource: Drawable,
-                transition: Transition<in Drawable>?
-            ) {
-                val bitmap = (resource as BitmapDrawable).bitmap
-                val cropDrawable = BitmapDrawable(resources, Bitmap.createScaledBitmap(bitmap, 144 , 38, true));
-                logo = cropDrawable
-            }
-
-            override fun onLoadCleared(placeholder: Drawable?) = Unit
-        })
-}*/

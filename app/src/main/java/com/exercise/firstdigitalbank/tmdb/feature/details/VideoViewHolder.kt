@@ -8,8 +8,8 @@ import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.exercise.firstdigitalbank.tmdb.R
-import com.exercise.firstdigitalbank.tmdb.shared.adapter.GenericViewAdapter
 import com.exercise.firstdigitalbank.tmdb.data.model.Video
+import com.exercise.firstdigitalbank.tmdb.shared.adapter.GenericViewAdapter
 
 class VideoViewHolder(view: View) :
     RecyclerView.ViewHolder(view), GenericViewAdapter.Binder<Video> {
@@ -24,7 +24,6 @@ class VideoViewHolder(view: View) :
         Glide.with(thumbnail.context)
             .load("${resources.getString(R.string.youtube_thumbnail_url)}${video.key}")
             .transform(MultiTransformation(CenterCrop(), RoundedCorners(ROUND_CORNER_RADIUS)))
-            //.apply(RequestOptions().error(R.drawable.ic_launcher_background))
             .into(thumbnail)
     }
 

@@ -25,7 +25,6 @@ class CastViewHolder(private val view: View) :
         Glide.with(thumbnail.context)
             .load("${resources.getString(R.string.tmdb_image_base_url)}${cast.profilePath}")
             .transform(MultiTransformation(CenterCrop(), RoundedCorners(ROUND_CORNER_RADIUS)))
-            //.apply(RequestOptions().error(R.drawable.ic_launcher_background))
             .into(thumbnail)
     }
 

@@ -41,7 +41,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnItemClickListener<Movie
     }
 
     private fun setupActionBar() {
-        //setupWithNavController(toolbar, findNavController(), AppBarConfiguration(findNavController().graph))
         activity?.title = getString(R.string.app_name)
     }
 

@@ -1,7 +1,7 @@
 package com.exercise.firstdigitalbank.tmdb.feature.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -22,18 +22,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun setupActionBarAppBar() {
         // Get a support ActionBar corresponding to this toolbar and enable the Up button
-
         setupActionBarWithNavController(navController, appBarConfiguration)
         actionBar?.let {
             it.setDisplayHomeAsUpEnabled(true)
-        }
-
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            when(destination.id) {
-                R.id.hilt_homeFragment -> getString(R.string.app_name)
-                else -> getString(R.string.app_name)
-
-            }
         }
     }
 
