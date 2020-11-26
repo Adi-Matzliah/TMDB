@@ -8,4 +8,5 @@ used libraries/features:
 * <b>Retrofit</b> - Network
 * <b>Navigation</b> - Navigation
 * <b>Glige</b> - Image Loader
+
 ![img](demo.gif)
