@@ -8,6 +8,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.exercise.firstdigitalbank.tmdb.R
 import com.exercise.firstdigitalbank.tmdb.core.MoviesRecyclerViewAdapter
+import com.exercise.firstdigitalbank.tmdb.core.adapter.OnItemClickListener
+import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
 import com.exercise.firstdigitalbank.tmdb.feature.movie.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,13 +21,13 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home), OnItemClickListener<Movie> {
     private val viewModel: MoviesViewModel by viewModels()
 
-    private val nowPlayingMoviesAdapter = MoviesRecyclerViewAdapter(MovieCategory.NOW_PLAYING)
-    private val popularMoviesAdapter = MoviesRecyclerViewAdapter(MovieCategory.POPULAR)
-    private val topRatedMoviesAdapter = MoviesRecyclerViewAdapter(MovieCategory.TOP_RATED)
-    private val upcomingMoviesAdapter = MoviesRecyclerViewAdapter(MovieCategory.UPCOMING)
+    private val nowPlayingMoviesAdapter = MoviesRecyclerViewAdapter(MovieCategory.NOW_PLAYING, this)
+    private val popularMoviesAdapter = MoviesRecyclerViewAdapter(MovieCategory.POPULAR, this)
+    private val topRatedMoviesAdapter = MoviesRecyclerViewAdapter(MovieCategory.TOP_RATED, this)
+    private val upcomingMoviesAdapter = MoviesRecyclerViewAdapter(MovieCategory.UPCOMING, this)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -85,5 +87,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val movieDetailsScreenAction =
             HomeFragmentDirections.actionHiltHomeFragmentToHiltMovieDetailsFragment(movieId)
         findNavController().navigate(movieDetailsScreenAction)
+    }
+
+    override fun ontItemClick(item: Movie, position: Int) {
+        openMovieDetailsScreen(item.id)
     }
 }

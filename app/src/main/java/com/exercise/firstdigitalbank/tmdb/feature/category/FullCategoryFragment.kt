@@ -1,7 +1,9 @@
 package com.exercise.firstdigitalbank.tmdb.feature.category
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -9,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.exercise.firstdigitalbank.tmdb.R
 import com.exercise.firstdigitalbank.tmdb.core.MoviesRecyclerViewAdapter
+import com.exercise.firstdigitalbank.tmdb.core.adapter.OnItemClickListener
+import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
 import com.exercise.firstdigitalbank.tmdb.feature.details.MovieDetailsFragmentArgs
 import com.exercise.firstdigitalbank.tmdb.feature.home.HomeFragmentDirections
@@ -20,20 +24,20 @@ import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class FullCategoryFragment: Fragment(R.layout.fragment_full_category) {
+class FullCategoryFragment: Fragment(R.layout.fragment_full_category), OnItemClickListener<Movie> {
     private val viewModel: MoviesViewModel by viewModels()
 
-    private lateinit var adapter: MoviesRecyclerViewAdapter
+    private lateinit var adapter: FullCategoryRecyclerViewAdapter
     private val args: FullCategoryFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        subscribeObservers()
         initAdapter()
+        subscribeObservers()
     }
 
     private fun initAdapter() {
-        adapter = MoviesRecyclerViewAdapter(args.movieCategory)
+        adapter = FullCategoryRecyclerViewAdapter(args.movieCategory, this)
         rv_movie_category.adapter = adapter
     }
 
@@ -43,7 +47,6 @@ class FullCategoryFragment: Fragment(R.layout.fragment_full_category) {
                 adapter.submitData(it)
             }
         }
-
     }
 
     private fun openMovieDetailsScreen(movieId: Int) {
@@ -52,4 +55,7 @@ class FullCategoryFragment: Fragment(R.layout.fragment_full_category) {
         findNavController().navigate(movieDetailsScreenAction)
     }
 
+    override fun ontItemClick(item: Movie, position: Int) {
+        openMovieDetailsScreen(item.id)
+    }
 }

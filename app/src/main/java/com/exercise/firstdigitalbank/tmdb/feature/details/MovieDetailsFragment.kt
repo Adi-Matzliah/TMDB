@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.exercise.firstdigitalbank.tmdb.R
 import com.exercise.firstdigitalbank.tmdb.core.MoviesRecyclerViewAdapter
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
+import com.exercise.firstdigitalbank.tmdb.data.model.Video
 import com.exercise.firstdigitalbank.tmdb.databinding.DetailsFragmentBinding
 import com.exercise.firstdigitalbank.tmdb.feature.movie.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,8 +28,8 @@ import kotlinx.coroutines.launch
 class MovieDetailsFragment: Fragment() {
     private val viewModel: MovieDetailsViewModel by viewModels()
 
-    private lateinit var videoAdapter: MoviesRecyclerViewAdapter
-    private lateinit var castAdapter: MoviesRecyclerViewAdapter
+    private lateinit var videoAdapter: MovieVideosRecyclerViewAdapter
+    private lateinit var castAdapter: MovieCastsRecyclerViewAdapter
 
     private lateinit var binding: DetailsFragmentBinding
 
@@ -39,12 +40,19 @@ class MovieDetailsFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        initAdapter()
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_details, container, false)
+        setupToolbar()
+
+        initAdapter()
         initDataBinding()
         subscribeObservers()
         viewModel.fetchMovieDetails(args.movieId)
         return binding.root
+    }
+
+    private fun setupToolbar() {
+        activity?.setActionBar(binding.toolbar)
+        //activity?.actionBar?.title = "title"
     }
 
     private fun initDataBinding() {
@@ -53,20 +61,22 @@ class MovieDetailsFragment: Fragment() {
     }
 
     private fun initAdapter() {
-        rv_videos.adapter = videoAdapter
-        rv_casts.adapter = castAdapter
+        videoAdapter = MovieVideosRecyclerViewAdapter(emptyList())
+        castAdapter = MovieCastsRecyclerViewAdapter(emptyList())
+        binding.rvVideos.adapter = videoAdapter
+        binding.rvCasts.adapter = castAdapter
     }
 
     private fun subscribeObservers() {
         viewModel.movieDetails.observe(viewLifecycleOwner) {
-            it.videos?.let {
-
+            it.videos?.let { videos ->
+                videoAdapter.setItems(videos)
             }
         }
 
         viewModel.movieDetails.observe(viewLifecycleOwner) {
-            it.casts?.let {
-
+            it.casts?.let { casts ->
+                castAdapter.setItems(casts)
             }
         }
     }
