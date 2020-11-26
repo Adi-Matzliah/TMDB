@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/hilt_homeFragment">
+    <fragment
+        android:id="@+id/hilt_homeFragment"
+        android:name="com.exercise.firstdigitalbank.tmdb.feature.home.HomeFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_hilt_homeFragment_to_hilt_FullCategoryFragment"
+            app:destination="@id/hilt_FullCategoryFragment" />
+        <action
+            android:id="@+id/action_hilt_homeFragment_to_hilt_MovieDetailsFragment"
+            app:destination="@id/hilt_MovieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hilt_FullCategoryFragment"
+        android:name="com.exercise.firstdigitalbank.tmdb.feature.category.FullCategoryFragment"
+        android:label="FullCategoryFragment"
+        tools:layout="@layout/fragment_full_category">
+        <action
+            android:id="@+id/action_hilt_FullCategoryFragment_to_hilt_MovieDetailsFragment"
+            app:destination="@id/hilt_MovieDetailsFragment" />
+        <argument
+            android:name="movie_category"
+            app:argType="com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory" />
+    </fragment>
+    <fragment
+        android:id="@+id/hilt_MovieDetailsFragment"
+        android:name="com.exercise.firstdigitalbank.tmdb.feature.details.MovieDetailsFragment"
+        android:label="MovieDetailsFragment"
+        tools:layout="@layout/fragment_movie_details">
+        <argument
+            android:name="movie_id"
+            app:argType="integer" />
+    </fragment>
+</navigation>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">TMDB</string>
+    <string name="tmdb_api_base_url">https://api.themoviedb.org/3/</string>
+    <string name="tmdb_image_base_url">https://image.tmdb.org/t/p/w500</string>
+    <!--<string name="youtube_api_base_url">https://www.googleapis.com/youtube/v3/videos?key=AIzaSyDpzwG2-Mn9voJZmwTSomFU753y_Tb3mA4&part=snippet&q=9nlhmJF5FNI</string>-->
+    <string name="youtube_thumbnail_url">https://img.youtube.com/vi/9nlhmJF5FNI/mqdefault.jpg</string>
+    <string name="api_key_v3">87b29c78047c2059a1bb306825c2dfba</string>
+    <string name="api_auth_token_v4">eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4N2IyOWM3ODA0N2MyMDU5YTFiYjMwNjgyNWMyZGZiYSIsInN1YiI6IjVmYjgyNGIyOGE4NGQyMDAzZTdhNmVjZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dlVj-WjxgDjft5VGddT_ZdAhciwAcRzEqQ4c_jws9kQ</string>
+
+    <string name="now_playing_movies_header">Movies Now Playing</string>
+    <string name="popular_movies_header">Popular Movies</string>
+    <string name="top_rated_movies_header">Top Rated Movies</string>
+    <string name="upcoming_movies_header">Upcoming Movies</string>
+    <string name="more">More</string>
+    <string name="budget_label">Budget:</string>
+    <string name="budget_text">USD %s</string>
+    <string name="release_label">Release:</string>
+    <string name="runtime_label">Runtime:</string>
+    <string name="runtime_text">%s min</string>
+    <string name="status_label">Status:</string>
+    <string name="rating_label">Rating:</string>
+    <string name="rating_text">%s/10</string>
+    <string name="overview_label">Overview</string>
+    <string name="videos_label">Videos</string>
+    <string name="casts_label">Casts</string>
+    <string name="content_description">n/a</string>
+</resources>
