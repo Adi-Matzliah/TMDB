@@ -5,8 +5,9 @@ Modern android Covid-19 app based <b>MVVM</b> architecture where you able to exp
 used libraries/features:
 * <b>Corutines</b> - Asynchronous programming
 * <b>Hilt</b> - Dependency Injection
+* <b>Paging 3</b> - Pagination (Endless Scrolling) 
 * <b>Retrofit</b> - Network
 * <b>Navigation</b> - Navigation
-* <b>Glige</b> - Image Loader
+* <b>Glide</b> - Image Loader
 
 ![img](demo.gif)
