@@ -15,6 +15,7 @@ import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
 import com.exercise.firstdigitalbank.tmdb.feature.movie.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_full_category.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.now_playing_movies_layout.*
 import kotlinx.android.synthetic.main.popular_movies_layout.*
@@ -91,13 +92,24 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnItemClickListener<Movie
         findNavController().navigate(fullMovieCategoryAction)
     }
 
-    private fun openMovieDetailsScreen(movieId: Int) {
+    private fun openMovieDetailsScreen(movie: Movie) {
         val movieDetailsScreenAction =
-            HomeFragmentDirections.actionHiltHomeFragmentToHiltMovieDetailsFragment(movieId)
+            HomeFragmentDirections.actionHiltHomeFragmentToHiltMovieDetailsFragment(
+                movie.id,
+                movie.name
+            )
         findNavController().navigate(movieDetailsScreenAction)
     }
 
     override fun ontItemClick(item: Movie, position: Int) {
-        openMovieDetailsScreen(item.id)
+        openMovieDetailsScreen(item)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        rv_now_playing_movies.adapter = null
+        rv_popular_movies.adapter = null
+        rv_top_rated_movies.adapter = null
+        rv_upcoming_movies.adapter = null
     }
 }

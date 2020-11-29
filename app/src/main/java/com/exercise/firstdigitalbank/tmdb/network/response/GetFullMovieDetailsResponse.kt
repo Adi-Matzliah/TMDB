@@ -1,250 +1,250 @@
 package com.exercise.firstdigitalbank.tmdb.network.response
 
-import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
 import com.google.gson.annotations.SerializedName
+
 
 data class GetFullMovieDetailsResponse(
 
 	@SerializedName("original_language")
-	val originalLanguage: String? = null,
+	var originalLanguage: String? = null,
 
 	@SerializedName("imdb_id")
-	val imdbId: String? = null,
+	var imdbId: String? = null,
 
 	@SerializedName("videos")
-	val videos: Videos? = null,
+	var videos: Videos? = null,
 
 	@SerializedName("video")
-	val video: Boolean? = null,
+	var video: Boolean? = null,
 
 	@SerializedName("title")
-	val title: String? = null,
+	var title: String? = null,
 
 	@SerializedName("backdrop_path")
-	val backdropPath: String? = null,
+	var backdropPath: String? = null,
 
 	@SerializedName("revenue")
-	val revenue: Int? = null,
+	var revenue: Int? = null,
 
 	@SerializedName("credits")
-	val credits: Credits? = null,
+	var credits: Credits? = null,
 
 	@SerializedName("genres")
-	val genres: List<GenresItem?>? = null,
+	var genres: List<GenresItem?>? = null,
 
 	@SerializedName("popularity")
-	val popularity: Double? = null,
+	var popularity: Double? = null,
 
 	@SerializedName("production_countries")
-	val productionCountries: List<ProductionCountriesItem?>? = null,
+	var productionCountries: List<ProductionCountriesItem?>? = null,
 
 	@SerializedName("id")
-	val id: Int,
+	var id: Int,
 
 	@SerializedName("vote_count")
-	val voteCount: Int? = null,
+	var voteCount: Int? = null,
 
 	@SerializedName("budget")
-	val budget: Int,
+	var budget: Int,
 
 	@SerializedName("overview")
-	val overview: String,
+	var overview: String,
 
 	@SerializedName("original_title")
-	val originalTitle: String? = null,
+	var originalTitle: String? = null,
 
 	@SerializedName("runtime")
-	val runtime: Int,
+	var runtime: Int,
 
 	@SerializedName("poster_path")
-	val posterPath: String? = null,
+	var posterPath: String? = null,
 
 	@SerializedName("spoken_languages")
-	val spokenLanguages: List<SpokenLanguagesItem?>? = null,
+	var spokenLanguages: List<SpokenLanguagesItem?>? = null,
 
 	@SerializedName("production_companies")
-	val productionCompanies: List<ProductionCompaniesItem?>? = null,
+	var productionCompanies: List<ProductionCompaniesItem?>? = null,
 
 	@SerializedName("release_date")
-	val releaseDate: String,
+	var releaseDate: String,
 
 	@SerializedName("vote_average")
-	val voteAverage: Double,
+	var voteAverage: Double,
 
 	@SerializedName("belongs_to_collection")
-	val belongsToCollection: Any? = null,
+	var belongsToCollection: Any? = null,
 
 	@SerializedName("tagline")
-	val tagline: String? = null,
+	var tagline: String? = null,
 
 	@SerializedName("adult")
-	val adult: Boolean? = null,
+	var adult: Boolean? = null,
 
 	@SerializedName("homepage")
-	val homepage: String? = null,
+	var homepage: String? = null,
 
 	@SerializedName("status")
-	val status: String
+	var status: String
 )
 
 data class Credits(
 
 	@SerializedName("cast")
-	val casts: List<CastItem?>? = null,
+	var casts: List<CastItem?>? = null,
 
 	@SerializedName("crew")
-	val crew: List<CrewItem?>? = null
+	var crew: List<CrewItem?>? = null
 )
 
 data class ProductionCountriesItem(
 
 	@SerializedName("iso_3166_1")
-	val iso31661: String? = null,
+	var iso31661: String? = null,
 
 	@SerializedName("name")
-	val name: String? = null
+	var name: String? = null
 )
 
 data class SpokenLanguagesItem(
 
 	@SerializedName("name")
-	val name: String? = null,
+	var name: String? = null,
 
 	@SerializedName("iso_639_1")
-	val iso6391: String? = null,
+	var iso6391: String? = null,
 
 	@SerializedName("english_name")
-	val englishName: String? = null
+	var englishName: String? = null
 )
 
 data class ProductionCompaniesItem(
 
 	@SerializedName("logo_path")
-	val logoPath: Any? = null,
+	var logoPath: Any? = null,
 
 	@SerializedName("name")
-	val name: String? = null,
+	var name: String? = null,
 
 	@SerializedName("id")
-	val id: Int? = null,
+	var id: Int? = null,
 
 	@SerializedName("origin_country")
-	val originCountry: String? = null
+	var originCountry: String? = null
 )
 
 data class GenresItem(
 
 	@SerializedName("name")
-	val name: String? = null,
+	var name: String? = null,
 
 	@SerializedName("id")
-	val id: Int? = null
+	var id: Int? = null
 )
 
 data class Videos(
 
 	@SerializedName("results")
-	val results: List<VideoItem?>? = null
+	var results: List<VideoItem?>? = null
 )
 
 data class CastItem(
 
-	@field:SerializedName("cast_id")
-	val castId: Int? = null,
+	@SerializedName("cast_id")
+	var castId: Int? = null,
 
-	@field:SerializedName("character")
-	val character: String? = null,
+	@SerializedName("character")
+	var character: String? = null,
 
-	@field:SerializedName("gender")
-	val gender: Int? = null,
+	@SerializedName("gender")
+	var gender: Int? = null,
 
-	@field:SerializedName("credit_id")
-	val creditId: String? = null,
+	@SerializedName("credit_id")
+	var creditId: String? = null,
 
-	@field:SerializedName("known_for_department")
-	val knownForDepartment: String? = null,
+	@SerializedName("known_for_department")
+	var knownForDepartment: String? = null,
 
-	@field:SerializedName("original_name")
-	val originalName: String? = null,
+	@SerializedName("original_name")
+	var originalName: String? = null,
 
-	@field:SerializedName("popularity")
-	val popularity: Double? = null,
+	@SerializedName("popularity")
+	var popularity: Double? = null,
 
-	@field:SerializedName("name")
-	val name: String,
+	@SerializedName("name")
+	var name: String,
 
-	@field:SerializedName("profile_path")
-	val profilePath: String? = null,
+	@SerializedName("profile_path")
+	var profilePath: String? = null,
 
-	@field:SerializedName("id")
-	val id: Int? = null,
+	@SerializedName("id")
+	var id: Int? = null,
 
-	@field:SerializedName("adult")
-	val adult: Boolean? = null,
+	@SerializedName("adult")
+	var adult: Boolean? = null,
 
-	@field:SerializedName("order")
-	val order: Int? = null
+	@SerializedName("order")
+	var order: Int? = null
 )
 
 data class CrewItem(
 
-	@field:SerializedName("gender")
-	val gender: Int? = null,
+	@SerializedName("gender")
+	var gender: Int? = null,
 
-	@field:SerializedName("credit_id")
-	val creditId: String? = null,
+	@SerializedName("credit_id")
+	var creditId: String? = null,
 
-	@field:SerializedName("known_for_department")
-	val knownForDepartment: String? = null,
+	@SerializedName("known_for_department")
+	var knownForDepartment: String? = null,
 
-	@field:SerializedName("original_name")
-	val originalName: String? = null,
+	@SerializedName("original_name")
+	var originalName: String? = null,
 
-	@field:SerializedName("popularity")
-	val popularity: Double? = null,
+	@SerializedName("popularity")
+	var popularity: Double? = null,
 
-	@field:SerializedName("name")
-	val name: String? = null,
+	@SerializedName("name")
+	var name: String? = null,
 
-	@field:SerializedName("profile_path")
-	val profilePath: String? = null,
+	@SerializedName("profile_path")
+	var profilePath: String? = null,
 
-	@field:SerializedName("id")
-	val id: Int? = null,
+	@SerializedName("id")
+	var id: Int? = null,
 
-	@field:SerializedName("adult")
-	val adult: Boolean? = null,
+	@SerializedName("adult")
+	var adult: Boolean? = null,
 
-	@field:SerializedName("department")
-	val department: String? = null,
+	@SerializedName("department")
+	var department: String? = null,
 
-	@field:SerializedName("job")
-	val job: String? = null
+	@SerializedName("job")
+	var job: String? = null
 )
 
 data class VideoItem(
 
-	@field:SerializedName("site")
-	val site: String,
+	@SerializedName("site")
+	var site: String,
 
-	@field:SerializedName("size")
-	val size: Int? = null,
+	@SerializedName("size")
+	var size: Int? = null,
 
-	@field:SerializedName("iso_3166_1")
-	val iso31661: String? = null,
+	@SerializedName("iso_3166_1")
+	var iso31661: String? = null,
 
-	@field:SerializedName("name")
-	val name: String? = null,
+	@SerializedName("name")
+	var name: String? = null,
 
-	@field:SerializedName("id")
-	val id: String,
+	@SerializedName("id")
+	var id: String,
 
-	@field:SerializedName("type")
-	val type: String? = null,
+	@SerializedName("type")
+	var type: String? = null,
 
-	@field:SerializedName("iso_639_1")
-	val iso6391: String? = null,
+	@SerializedName("iso_639_1")
+	var iso6391: String? = null,
 
-	@field:SerializedName("key")
-	val key: String? = null
+	@SerializedName("key")
+	var key: String? = null
 )

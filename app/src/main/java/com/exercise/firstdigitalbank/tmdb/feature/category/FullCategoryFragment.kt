@@ -32,7 +32,7 @@ class FullCategoryFragment : Fragment(R.layout.fragment_full_category), OnItemCl
     }
 
     private fun setupActionBar() {
-        activity?.actionBar?.title =
+        activity?.title =
             getString(R.string.title_category_name, args.movieCategory.value)
     }
 
@@ -49,15 +49,19 @@ class FullCategoryFragment : Fragment(R.layout.fragment_full_category), OnItemCl
         }
     }
 
-    private fun openMovieDetailsScreen(movieId: Int) {
+    private fun openMovieDetailsScreen(movie: Movie) {
         val movieDetailsScreenAction =
             FullCategoryFragmentDirections.actionHiltFullCategoryFragmentToHiltMovieDetailsFragment(
-                movieId
+                movie.id,
+                movie.name
             )
         findNavController().navigate(movieDetailsScreenAction)
     }
 
-    override fun ontItemClick(item: Movie, position: Int) {
-        openMovieDetailsScreen(item.id)
+    override fun ontItemClick(item: Movie, position: Int) = openMovieDetailsScreen(item)
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        rv_movie_category.adapter = null
     }
 }

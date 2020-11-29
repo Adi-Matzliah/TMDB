@@ -17,14 +17,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupActionBarAppBar()
+        setupActionBar()
     }
 
-    private fun setupActionBarAppBar() {
+    private fun setupActionBar() {
         // Get a support ActionBar corresponding to this toolbar and enable the Up button
         setupActionBarWithNavController(navController, appBarConfiguration)
-        actionBar?.let {
-            it.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            when (destination.id) {
+                R.id.hilt_MovieDetailsFragment -> supportActionBar?.hide()
+                else -> supportActionBar?.show()
+            }
         }
     }
 
@@ -32,4 +36,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         navController.navigateUp()
         return super.onSupportNavigateUp()
     }
+
+
 }
