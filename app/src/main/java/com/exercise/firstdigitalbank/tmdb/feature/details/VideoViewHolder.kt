@@ -16,14 +16,12 @@ class VideoViewHolder(view: View) :
     private val thumbnail: ImageView = view.findViewById(R.id.iv_thumbnail)
     private lateinit var movieVideo: Video
 
-
     override fun bind(video: Video) {
         this.movieVideo = video
         val resources = itemView.resources
 
         Glide.with(thumbnail.context)
-            .load("${resources.getString(R.string.youtube_thumbnail_url)}${video.key}")
-            .transform(MultiTransformation(CenterCrop(), RoundedCorners(ROUND_CORNER_RADIUS)))
+            .load(resources.getString(R.string.youtube_thumbnail_url, video.key))
             .into(thumbnail)
     }
 

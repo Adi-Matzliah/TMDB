@@ -26,7 +26,6 @@ class MoviesRecyclerViewAdapter(
     override fun getViewHolder(view: View, viewType: Int) =
         ViewHolderFactory.create(view, viewType, listener)
 
-
     companion object {
         public val MOVIE_COMPARATOR = object : DiffUtil.ItemCallback<Movie>() {
             override fun areItemsTheSame(oldItem: Movie, newItem: Movie) =

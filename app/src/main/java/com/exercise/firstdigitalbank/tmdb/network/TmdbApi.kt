@@ -22,7 +22,7 @@ interface TmdbApi {
     suspend fun getUpcomingMovies(@Query("page") page: Int = TMDB_STARTING_PAGE_INDEX): GetMoviesResponse.GetUpcomingResponse
 
     @GET("movie/{movie_id}")
-    suspend fun getMovieDetails(@Path("movie_id") id: Int, @Query("append_to_response") appendToResponse: String = "movies,credits"): GetFullMovieDetailsResponse
+    suspend fun getMovieDetails(@Path("movie_id") id: Int, @Query("append_to_response") appendToResponse: String = "videos,credits"): GetFullMovieDetailsResponse
 
 }
 

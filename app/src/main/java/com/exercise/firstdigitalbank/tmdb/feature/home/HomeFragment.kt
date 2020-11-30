@@ -2,20 +2,19 @@ package com.exercise.firstdigitalbank.tmdb.feature.home
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.widget.Toolbar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.paging.CombinedLoadStates
+import androidx.paging.LoadState
 import com.exercise.firstdigitalbank.tmdb.R
 import com.exercise.firstdigitalbank.tmdb.shared.adapter.OnItemClickListener
 import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
 import com.exercise.firstdigitalbank.tmdb.feature.movie.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_full_category.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.now_playing_movies_layout.*
 import kotlinx.android.synthetic.main.popular_movies_layout.*
@@ -57,6 +56,11 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnItemClickListener<Movie
         rv_popular_movies.adapter = popularMoviesAdapter
         rv_top_rated_movies.adapter = topRatedMoviesAdapter
         rv_upcoming_movies.adapter = upcomingMoviesAdapter
+
+        nowPlayingMoviesAdapter.addLoadStateListener(loadPagingSourceState)
+        popularMoviesAdapter.addLoadStateListener(loadPagingSourceState)
+        topRatedMoviesAdapter.addLoadStateListener(loadPagingSourceState)
+        upcomingMoviesAdapter.addLoadStateListener(loadPagingSourceState)
     }
 
     private fun subscribeObservers() {
@@ -111,5 +115,20 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnItemClickListener<Movie
         rv_popular_movies.adapter = null
         rv_top_rated_movies.adapter = null
         rv_upcoming_movies.adapter = null
+    }
+
+    private val loadPagingSourceState = fun(loadState: CombinedLoadStates) {
+        // Toast on any error, regardless of whether it came from RemoteMediator or PagingSource
+        val errorState = loadState.source.append as? LoadState.Error
+            ?: loadState.source.prepend as? LoadState.Error
+            ?: loadState.append as? LoadState.Error
+            ?: loadState.prepend as? LoadState.Error
+        errorState?.let {
+            Toast.makeText(
+                context,
+                getString(R.string.paging_loading_error_message, errorState.error.message),
+                Toast.LENGTH_LONG
+            ).show()
+        }
     }
 }

@@ -11,6 +11,7 @@ import com.exercise.firstdigitalbank.tmdb.data.RemoteRepository
 import com.exercise.firstdigitalbank.tmdb.data.model.Movie
 import com.exercise.firstdigitalbank.tmdb.data.model.MovieCategory
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
 
@@ -25,10 +26,11 @@ class MoviesViewModel @ViewModelInject constructor(
     private lateinit var upcomingMoviesResult: Flow<PagingData<Movie>>
 
     fun fetchMoviesCategoryFlow(movieCategory: MovieCategory): Flow<PagingData<Movie>> {
-        // TODO: handle errors and exception
+
         val moviesResult = repository.getMoviesByCategory(movieCategory)
             .onEach { Timber.d("new page: $it") }
             .cachedIn(viewModelScope)
+            .catch { e -> Timber.e("An error occurred while trying to load new page: ${e.message}") }
 
         when (movieCategory) {
             MovieCategory.NOW_PLAYING -> {
