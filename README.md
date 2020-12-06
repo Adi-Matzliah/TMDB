@@ -1,4 +1,4 @@
-# TMDB (First Digital Bank)
+# TMDB
 
 Modern android app based <b>MVVM</b> architecture where you are able to explore movies, get their information, search movies by category and more (using TMDB api) 
 
